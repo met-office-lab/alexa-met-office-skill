@@ -4,25 +4,35 @@ const fetch = require("node-fetch");
 const handlers = {
     "GetLocation": function () {
         const self = this;
-        const location = this.event.request.intent.slots.location.value;
+        const location = self.event.request.intent.slots.location.value;
         if (!location) {
-            self.emit(":ask", "where?", "where would you like the forecast for?")
+            if(!self.attributes.location) {
+                self.emit(":ask", "where?", "where would you like the forecast for?")
+            } else{
+                self.emit("FulfillForecast");
+            }
         } else {
-            this.emit("FulfillForecast");
+            self.attributes["location"] = location;
+            self.emit("FulfillForecast");
         }
     },
     "GetForecast": function () {
         const self = this;
-        const location = this.event.request.intent.slots.location.value;
+        const location = self.event.request.intent.slots.location.value;
         if (!location) {
-            self.emit(":ask", "where?", "where would you like the forecast for?")
+            if(!self.attributes.location) {
+                self.emit(":ask", "where?", "where would you like the forecast for?")
+            } else{
+                self.emit("FulfillForecast");
+            }
         } else {
-            this.emit("FulfillForecast");
+            self.attributes["location"] = location;
+            self.emit("FulfillForecast");
         }
     },
     "FulfillForecast": function () {
         const self = this;
-        const location = this.event.request.intent.slots.location.value;
+        const location = self.attributes.location;
         if (!location) {
             self.emit(":ask", "where?", "where would you like the forecast for?")
         } else {
@@ -58,6 +68,7 @@ const handlers = {
 
 exports.handler = function (event, context) {
     const alexa = Alexa.handler(event, context);
+    alexa.dynamoDBTableName = "alexa-met-office-skill";
     alexa.registerHandlers(handlers);
     alexa.execute();
 };
