@@ -27,7 +27,7 @@ provider:
 #  region: us-east-1
   region: eu-west-1
   profile: serverless-admin
-  memorySize: 512 # optional, default is 1024
+  memorySize: 128 # optional, default is 1024
   timeout: 10 # optional, default is 6
 
 # you can define service wide environment variables here

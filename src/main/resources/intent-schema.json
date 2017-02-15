@@ -10,6 +10,15 @@
       ]
     },
     {
+      "intent": "GetLocation",
+      "slots": [
+        {
+          "name": "location",
+          "type": "AMAZON.GB_CITY"
+        }
+      ]
+    },
+    {
       "intent": "AMAZON.HelpIntent"
     },
     {
