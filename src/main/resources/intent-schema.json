@@ -1,0 +1,22 @@
+{
+  "intents": [
+    {
+      "intent": "GetForecast",
+      "slots": [
+        {
+          "name": "location",
+          "type": "AMAZON.GB_CITY"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

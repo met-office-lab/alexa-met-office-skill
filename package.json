@@ -1,0 +1,15 @@
+{
+  "name": "alexa-met-office-skill",
+  "version": "0.1.0",
+  "description": "first steps with alexa on node",
+  "main": "src/main/js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "thomas powell <thomas.powell@informaticslab.co.uk>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "alexa-sdk": "^1.0.7",
+    "node-fetch": "^1.6.3"
+  }
+}
