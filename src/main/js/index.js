@@ -1,21 +1,44 @@
-const Alexa = require('alexa-sdk');
-const fetch = require('node-fetch');
+const Alexa = require("alexa-sdk");
+const fetch = require("node-fetch");
 
 const handlers = {
-    'GetForecast': function () {
+    "GetLocation": function () {
         const self = this;
-        const location = encodeURIComponent(this.event.request.intent.slots.location.value);
-        fetch("https://shlmog4lwa.execute-api.eu-west-1.amazonaws.com/dev/datapoint?location=" + location)
-            .then(function (res) {
-                return res.json();
-            })
-            .then(function (json) {
-                console.log(json);
-                self.emit(':tell', json.properties.forecast.text.local)
-            })
-            .catch(function(err){
-                console.log("ERROR\n",err);
-            })
+        const location = this.event.request.intent.slots.location.value;
+        if (!location) {
+            self.emit(":ask", "where?", "where would you like the forecast for?")
+        } else {
+            this.emit("FulfillForecast");
+        }
+    },
+    "GetForecast": function () {
+        const self = this;
+        const location = this.event.request.intent.slots.location.value;
+        if (!location) {
+            self.emit(":ask", "where?", "where would you like the forecast for?")
+        } else {
+            this.emit("FulfillForecast");
+        }
+    },
+    "FulfillForecast": function () {
+        const self = this;
+        const location = this.event.request.intent.slots.location.value;
+        if (!location) {
+            self.emit(":ask", "where?", "where would you like the forecast for?")
+        } else {
+            fetch("https://shlmog4lwa.execute-api.eu-west-1.amazonaws.com/dev/datapoint?location=" + encodeURIComponent(location))
+                .then(function (res) {
+                    return res.json();
+                })
+                .then(function (json) {
+                    console.log(json);
+                    self.emit(":tell", json.properties.forecast.text.local)
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    self.emit(":tell", "sorry I've failed you");
+                });
+        }
     },
     'AMAZON.HelpIntent': function () {
         const speechOutput = "Don't panick";
@@ -33,7 +56,7 @@ const handlers = {
     }
 };
 
-exports.handler = function(event, context) {
+exports.handler = function (event, context) {
     const alexa = Alexa.handler(event, context);
     alexa.registerHandlers(handlers);
     alexa.execute();

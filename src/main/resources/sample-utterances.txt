@@ -1,4 +1,10 @@
+GetForecast forecast in {location}
+GetForecast weather in {location}
 GetForecast for the forecast in {location}
 GetForecast for the weather in {location}
 GetForecast for the weather forecast in {location}
 GetForecast for the outlook in {location}
+
+GetLocation {location}
+GetLocation in {location}
+GetLocation at {location}
