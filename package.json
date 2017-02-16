@@ -11,5 +11,8 @@
   "dependencies": {
     "alexa-sdk": "^1.0.7",
     "node-fetch": "^1.6.3"
+  },
+  "scripts": {
+    "test": "mocha"
   }
 }
