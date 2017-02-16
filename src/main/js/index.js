@@ -1,5 +1,5 @@
 const Alexa = require("alexa-sdk");
-const forecast = require("forecast");
+const forecast = require("./forecast");
 
 exports.handler = function (event, context) {
     const alexa = Alexa.handler(event, context);
