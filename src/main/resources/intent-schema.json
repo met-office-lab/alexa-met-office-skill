@@ -1,7 +1,7 @@
 {
   "intents": [
     {
-      "intent": "GetForecast",
+      "intent": "GetWeatherForecast",
       "slots": [
         {
           "name": "location",
@@ -10,13 +10,25 @@
       ]
     },
     {
-      "intent": "GetLocation",
+      "intent": "GetWeatherLocation",
       "slots": [
         {
           "name": "location",
           "type": "AMAZON.GB_CITY"
         }
       ]
+    },
+    {
+      "intent": "GetShippingForecast",
+      "slots": [
+        {
+          "name": "maritime_region",
+          "type": "MARITIME_REGION"
+        }
+      ]
+    },
+    {
+      "intent": "GetShippingForecastSynopsis"
     },
     {
       "intent": "AMAZON.HelpIntent"
