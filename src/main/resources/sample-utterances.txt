@@ -1,13 +1,28 @@
-GetForecast forecast in {location}
-GetForecast weather in {location}
-GetForecast outlook in {location}
-GetForecast for the forecast in {location}
-GetForecast for the weather in {location}
-GetForecast for the outlook in {location}
-GetForecast for the weather forecast in {location}
-GetForecast for the weather outlook in {location}
+GetWeatherForecast forecast in {location}
+GetWeatherForecast forecast for {location}
+GetWeatherForecast weather in {location}
+GetWeatherForecast weather for {location}
+GetWeatherForecast outlook in {location}
+GetWeatherForecast outlook for {location}
+GetWeatherForecast for the forecast in {location}
+GetWeatherForecast for the weather in {location}
+GetWeatherForecast for the weather for {location}
+GetWeatherForecast for the outlook in {location}
+GetWeatherForecast for the outlook for {location}
+GetWeatherForecast for the weather forecast in {location}
+GetWeatherForecast for the weather forecast for {location}
+GetWeatherForecast for the weather outlook in {location}
+GetWeatherForecast for the weather outlook for {location}
 
+GetWeatherLocation {location}
+GetWeatherLocation in {location}
+GetWeatherLocation at {location}
 
-GetLocation {location}
-GetLocation in {location}
-GetLocation at {location}
+GetShippingForecast get the shipping forecast for {maritime_region}
+GetShippingForecast what is the shipping forecast for {maritime_region}
+GetShippingForecast tell me the shipping forecast for {maritime_region}
+GetShippingForecast get the shipping forecast for {maritime_region}
+
+GetShippingForecastSynopsis get the shipping forecast
+GetShippingForecastSynopsis get the sysnopsis
+GetShippingForecastSynopsis get the sysnopsis synopsis
